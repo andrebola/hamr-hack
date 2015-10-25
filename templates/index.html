@@ -1,0 +1,186 @@
+{% extends "base.html" %}
+
+{% block js %}
+<style>
+.numb-note{
+ float: left;
+    width: 40px;
+margin-right:10px;
+}
+</style>
+{% endblock %}
+
+{% block body %}
+<form method="post" action="/search">    
+<span class="numb-note">12</span><input type='radio' name='1' value='12'>
+    <input type='radio' name='2' value='12'>
+    <input type='radio' name='3' value='12'>
+    <input type='radio' name='4' value='12'>
+    <input type='radio' name='5' value='12'>
+    <input type='radio' name='6' value='12'>
+    <input type='radio' name='7' value='12'>
+    <input type='radio' name='8' value='12'>
+    <input type='radio' name='9' value='12'>
+    <input type='radio' name='10' value='12'>
+    <input type='radio' name='11' value='12'>
+    <input type='radio' name='12' value='12'>
+<br />   
+    <span class="numb-note">11</span><input type='radio' name='1' value='11'>
+    <input type='radio' name='2' value='11'>
+    <input type='radio' name='3' value='11'>
+    <input type='radio' name='4' value='11'>
+    <input type='radio' name='5' value='11'>
+    <input type='radio' name='6' value='11'>
+    <input type='radio' name='7' value='11'>
+    <input type='radio' name='8' value='11'>
+    <input type='radio' name='9' value='11'>
+    <input type='radio' name='10' value='11'>
+    <input type='radio' name='11' value='11'>
+    <input type='radio' name='12' value='11'>
+<br />
+   <span class="numb-note">10</span><input type='radio' name='1' value='10'>
+    <input type='radio' name='2' value='10'>
+    <input type='radio' name='3' value='10'>
+    <input type='radio' name='4' value='10'>
+    <input type='radio' name='5' value='10'>
+    <input type='radio' name='6' value='10'>
+    <input type='radio' name='7' value='10'>
+    <input type='radio' name='8' value='10'>
+    <input type='radio' name='9' value='10'>
+    <input type='radio' name='10' value='10'>
+    <input type='radio' name='11' value='10'>
+    <input type='radio' name='12' value='10'>
+<br />
+   <span class="numb-note">9</span><input type='radio' name='1' value='9'>
+    <input type='radio' name='2' value='9'>
+    <input type='radio' name='3' value='9'>
+    <input type='radio' name='4' value='9'>
+    <input type='radio' name='5' value='9'>
+    <input type='radio' name='6' value='9'>
+    <input type='radio' name='7' value='9'>
+    <input type='radio' name='8' value='9'>
+    <input type='radio' name='9' value='9'>
+    <input type='radio' name='10' value='9'>
+    <input type='radio' name='11' value='9'>
+    <input type='radio' name='12' value='9'>
+<br />
+   <span class="numb-note">8</span><input type='radio' name='1' value='8'>
+    <input type='radio' name='2' value='8'>
+    <input type='radio' name='3' value='8'>
+    <input type='radio' name='4' value='8'>
+    <input type='radio' name='5' value='8'>
+    <input type='radio' name='6' value='8'>
+    <input type='radio' name='7' value='8'>
+    <input type='radio' name='8' value='8'>
+    <input type='radio' name='9' value='8'>
+    <input type='radio' name='10' value='8'>
+    <input type='radio' name='11' value='8'>
+    <input type='radio' name='12' value='8'>
+<br />
+   <span class="numb-note">7</span><input type='radio' name='1' value='7'>
+    <input type='radio' name='2' value='7'>
+    <input type='radio' name='3' value='7'>
+    <input type='radio' name='4' value='7'>
+    <input type='radio' name='5' value='7'>
+    <input type='radio' name='6' value='7'>
+    <input type='radio' name='7' value='7'>
+    <input type='radio' name='8' value='7'>
+    <input type='radio' name='9' value='7'>
+    <input type='radio' name='10' value='7'>
+    <input type='radio' name='11' value='7'>
+    <input type='radio' name='12' value='7'>
+<br />
+  <span class="numb-note">6</span><input type='radio' name='1' value='6'>
+    <input type='radio' name='2' value='6'>
+    <input type='radio' name='3' value='6'>
+    <input type='radio' name='4' value='6'>
+    <input type='radio' name='5' value='6'>
+    <input type='radio' name='6' value='6'>
+    <input type='radio' name='7' value='6'>
+    <input type='radio' name='8' value='6'>
+    <input type='radio' name='9' value='6'>
+    <input type='radio' name='10' value='6'>
+    <input type='radio' name='11' value='6'>
+    <input type='radio' name='12' value='6'>
+<br />
+  <span class="numb-note">5</span><input type='radio' name='1' value='5'>
+    <input type='radio' name='2' value='5'>
+    <input type='radio' name='3' value='5'>
+    <input type='radio' name='4' value='5'>
+    <input type='radio' name='5' value='5'>
+    <input type='radio' name='6' value='5'>
+    <input type='radio' name='7' value='5'>
+    <input type='radio' name='8' value='5'>
+    <input type='radio' name='9' value='5'>
+    <input type='radio' name='10' value='5'>
+    <input type='radio' name='11' value='5'>
+    <input type='radio' name='12' value='5'>
+<br />
+ <span class="numb-note">4</span><input type='radio' name='1' value='4'>
+    <input type='radio' name='2' value='4'>
+    <input type='radio' name='3' value='4'>
+    <input type='radio' name='4' value='4'>
+    <input type='radio' name='5' value='4'>
+    <input type='radio' name='6' value='4'>
+    <input type='radio' name='7' value='4'>
+    <input type='radio' name='8' value='4'>
+    <input type='radio' name='9' value='4'>
+    <input type='radio' name='10' value='4'>
+    <input type='radio' name='11' value='4'>
+    <input type='radio' name='12' value='4'>
+<br />
+ <span class="numb-note">3</span><input type='radio' name='1' value='3'>
+    <input type='radio' name='2' value='3'>
+    <input type='radio' name='3' value='3'>
+    <input type='radio' name='4' value='3'>
+    <input type='radio' name='5' value='3'>
+    <input type='radio' name='6' value='3'>
+    <input type='radio' name='7' value='3'>
+    <input type='radio' name='8' value='3'>
+    <input type='radio' name='9' value='3'>
+    <input type='radio' name='10' value='3'>
+    <input type='radio' name='11' value='3'>
+    <input type='radio' name='12' value='3'>
+<br />
+<span class="numb-note">2</span><input type='radio' name='1' value='2'>
+    <input type='radio' name='2' value='2'>
+    <input type='radio' name='3' value='2'>
+    <input type='radio' name='4' value='2'>
+    <input type='radio' name='5' value='2'>
+    <input type='radio' name='6' value='2'>
+    <input type='radio' name='7' value='2'>
+    <input type='radio' name='8' value='2'>
+    <input type='radio' name='9' value='2'>
+    <input type='radio' name='10' value='2'>
+    <input type='radio' name='11' value='2'>
+    <input type='radio' name='12' value='2'>
+<br />
+<span class="numb-note">1</span><input type='radio' name='1' value='1'>
+    <input type='radio' name='2' value='1'>
+    <input type='radio' name='3' value='1'>
+    <input type='radio' name='4' value='1'>
+    <input type='radio' name='5' value='1'>
+    <input type='radio' name='6' value='1'>
+    <input type='radio' name='7' value='1'>
+    <input type='radio' name='8' value='1'>
+    <input type='radio' name='9' value='1'>
+    <input type='radio' name='10' value='1'>
+    <input type='radio' name='11' value='1'>
+    <input type='radio' name='12' value='1'>
+<br />
+
+
+
+<input type="submit" value="Submit">
+</form>
+
+
+
+
+
+
+
+ <div class="plButton" onclick="playrecord();">
+</div>
+{% endblock %}
+

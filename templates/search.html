@@ -1,0 +1,133 @@
+{% extends "base.html" %}
+
+{% block js %}
+<script src="/static/soundmanager2.js"></script>
+<script>
+  var trackmbid = '';
+  var notes_vals ={{notes}}; 
+  $(document).ready(function() {
+    soundManager.setup({
+        url: "static/swf/"
+    });
+    soundManager.onready(function() {
+         pagesound = soundManager.createSound({
+autoLoad: true,
+               id: 'mySound',
+               url: "/static/spanish_caravan_voice_and_drums.mp3",
+         });//.load();
+     });
+
+    hasfinished = false;
+    plButton = $(".plButton");
+    start = false;
+
+    var notes_map = ['C','C#','D','D#','E','F','F#','G','G#','A','A#','B','C','C#','D','D#','E','F','F#','G','G#','A','A#','B','C','C#','D','D#','E','F','F#','G','G#','A','A#','B','C','C#','D','D#','E','F','F#','G','G#','A','A#','B','C','C#','D','D#','E','F','F#','G','G#','A','A#','B','C','C#','D','D#','E','F','F#','G','G#','A','A#','B','C','C#','D','D#','E','F','F#','G','G#','A','A#','B','C','C#','D','D#','E','F','F#','G','G#','A','A#','B','C','C#','D','D#','E','F','F#','G','G#','A','A#','B','C','C#','D','D#','E','F','F#','G','G#','A','A#','B','C','C#','D','D#','E','F','F#','G','G#','A','A#','B'];
+    var max=0;
+    var min=Number.MAX_VALUE;
+    var from =Number.MAX_VALUE;
+    var to = 0;
+    for(var i =0;i<notes_vals.length;i++){
+        if(parseFloat(notes_vals[i][2]) > max){
+            max = parseFloat(notes_vals[i][2]);
+        }
+        if(parseFloat(notes_vals[i][2]) < min){
+            min = parseFloat(notes_vals[i][2]);
+        }
+         if(parseFloat(notes_vals[i][0]) < from){
+            from = parseFloat(notes_vals[i][0]) ;
+        }
+        if(parseFloat(notes_vals[i][0]) + parseFloat(notes_vals[i][1])> to){
+            to = parseFloat(notes_vals[i][0])+ parseFloat(notes_vals[i][1]);
+        }
+        
+    }
+    var canvas = $("#notes")[0];
+    canvas.width  = 900;
+    canvas.height = 255;    
+    var ctx = canvas.getContext("2d")
+    var w = (to - from);
+    
+    max = Math.round((min + max )/2) + 6;
+    min = max - 12;
+    
+    for(var i =0;i<notes_vals.length;i++){
+        curr = (parseFloat(notes_vals[i][0]) - from ) * 900/w + 10;
+        currTo = parseFloat(notes_vals[i][1]) * 900/w;
+        frq = 255 -(  (parseFloat(notes_vals[i][2]) - min) * 255/(max-min));
+        //console.log("frec " +  frq +  " curr " + curr+" curr " + notes_vals[i][0] +" frq "+ notes_vals[i][2] );
+        //console.log(curr);
+        ctx.fillRect(curr, frq, currTo, 10);
+    }
+
+   n_number = notes_vals.length;
+    for(var i =0;i<255;i+= Math.floor(255/12)){
+        val = (255 - i) * (max - min) / 255 + min;
+        ctx.fillText(notes_map[Math.round(val)],0,i);
+        ctx.fillRect(10,i,900,1);
+    }  
+
+           
+
+});
+
+function play() {
+    if (hasfinished) {
+        hasfinished = false;
+        replacepart(1);
+        beginningOfView = 0;
+        //drawdata();
+    }
+        var time = parseFloat(notes_vals[0][0]) * 1000;
+        pagesound.setPosition(parseFloat(time));
+    pagesound.play({
+        onfinish: function() {
+           //window.clearInterval(int);
+           plButton.removeClass("stop");
+           hasfinished = true;
+    }});
+    //int = window.setInterval(updateProgress, 30);
+    start = true;
+}
+function pause() {
+    pagesound.pause();
+    //window.clearInterval(int);
+}
+function playrecord(){
+        if(plButton.hasClass("stop")){
+            pause();
+            plButton.removeClass("stop");
+        }else{
+            play();
+            plButton.addClass("stop");
+        }
+    }
+  </script>
+<style>
+.plButton {
+    position: relative;
+    float: left;
+    width:64px;
+    height: 66px;
+    background: url("/static/plButton.png") 0 0 no-repeat;
+}
+.plButton:hover {
+    background: url("/static/plButton_hover.png") 0 0 no-repeat;
+}
+.stop {
+    background: url("/static/stopButton.png") 0 0 no-repeat;
+}
+.stop:hover {
+    background: url("/static/stopButton_hover.png") 0 0 no-repeat;
+}
+</style>
+{% endblock %}
+
+{% block body %}
+
+<canvas id="notes">
+
+</canvas>
+ <div class="plButton" onclick="playrecord();">
+</div>
+{% endblock %}
+
