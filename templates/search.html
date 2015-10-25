@@ -14,8 +14,8 @@
 autoLoad: true,
                id: 'mySound',
                url: "/static/spanish_caravan_voice_and_drums.mp3",
-         });//.load();
-     });
+      });//.load();
+    });
 
     hasfinished = false;
     plButton = $(".plButton");
@@ -87,7 +87,17 @@ function play() {
     }});
     //int = window.setInterval(updateProgress, 30);
     start = true;
+    last_note = notes_vals[notes_vals.length - 1];
+    last = ((last_note[0] + last_note[1]) )*1000;
+    console.log(last_note);
+    console.log(last);
+    pagesound.onPosition(last, function(eventPosition) { // fire at 0.5 seconds
+        pause();
+  });
+
 }
+/*function updateProgess(){
+}*/
 function pause() {
     pagesound.pause();
     //window.clearInterval(int);
