@@ -1,15 +1,17 @@
-# hamr-hack
+#interval magic
 
 created at hamr at ISMIR 2015, Malaga
-labrosa.ee.columbia.edu/hamr_ismir2015/proceedings/doku.php?id=interval-magic
+
+http://labrosa.ee.columbia.edu/hamr_ismir2015/proceedings/doku.php?id=interval-magic
+
+
 
 TODO:
-- ROngs algorithm
 
-- compute overlap: ground truth
+ROngs algorithm
 
-- vocal activations
+compute overlap: ground truth
 
-— aggregate notes with same pitch
+vocal activations
 
-
+aggregate notes with same pitch
